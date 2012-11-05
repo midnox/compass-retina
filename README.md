@@ -1,12 +1,16 @@
 # Compass::Retina
 
-TODO: Write a gem description
+This gem adds retina background-image mixins to [Compass](http://compass-style.org).
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
     gem 'compass-retina'
+
+Or, for the bleeding edge version:
+
+    gem 'compass-retina', :github => 'midnox/compass-retina', :branch => :master
 
 And then execute:
 
@@ -18,7 +22,22 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+In your SASS/SCSS stylesheet:
+
+```css
+@import "compass-retina";
+
+.foo {
+  @include background-image-retina("image.png");
+}
+```
+
+Put the two image files into your compass project's [`images_dir`](http://compass-style.org/help/tutorials/configuration-reference):
+
+ - `image.png`
+ - `image@2x.png`
+
+The mixin will gracefully check the availability of a 2x file and only then add related media queries to the generated css.
 
 ## Contributing
 
