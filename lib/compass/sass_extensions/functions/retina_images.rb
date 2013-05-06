@@ -1,6 +1,6 @@
 module Compass::SassExtensions::Functions::RetinaImages
   def file_exists(filename)
-    Sass::Script::Bool.new !Rails.application.assets.find_asset(filename.value).nil?
+    Sass::Script::Bool.new !Sprockets::Environment.new(Dir.pwd).find_asset(filename.value).nil?
   end
 
   def retina_filename(filename)
